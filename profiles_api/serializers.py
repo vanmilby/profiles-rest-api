@@ -30,3 +30,15 @@ class UserProfileSerializer(serializers.ModelSerializer):
         )
 
         return user
+
+
+class ProfileFeedItemSerializer(serializers.ModelSerializer):
+    # Serializes Profile Feed item
+    class Meta:
+        model = ProfileFeedItemSerializer
+        fields = ('id', 'user_profile', 'status_text', 'create_on')
+        extra_kwargs = {
+            'password': {
+                'read_only': True
+            }
+        }
